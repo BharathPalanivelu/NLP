@@ -1,0 +1,5 @@
+Get Stanford Sentiment Treebank:
+http://nlp.stanford.edu/~socherr/stanfordSentimentTreebank.zip
+
+Get 50D GloVe vectors:
+http://web.stanford.edu/~jamesh93/tmp/glove.6B.50d.txt.zip
