@@ -1,0 +1,15 @@
+In fancydep.py, we implemented an arc-eager parser instead of arc-standard parser. The improvement is obvious, running for just one iteration over 'en.tr100', we got an accuracy of over 40% on devset.
+
+We implemented the following additional feature (other than the original six features in transparser.py):
+
+1. a voting method for head: when predicting, if the parser stops early, we find the most frequent assigned head in the current predicted sentence, and use it as the heads of other uncertain words. We implemented this voting method because we observed that there are usually one or two words that are the heads of other words. Thus, if we have words without assignment head at the end of predicting one sentence, by giving the most frequent head word to them, we should improve our results a little bit. This method improvdes our accuracy on devset by approximately 2%.
+
+We also tried the following additional features based on the paper 'Transition-based Dependency Parsing with Rich Non-local Features'. However, after searching through multiple combinations of the additional features, we actually get lower accuracy on the devset. Implementing all following seven features gave us an overall accuracy of 52% in 10 iterations while we obtained 53% accuracy with the original six features in 5 iterations. In addition, trying different learning rates didn't seem to improve much when trainning 'en.tr'. So at the end, we choose to stay with the original six features with learning rate of 1 and 5 iterations. 
+
+1. The pair of the top stack word POS tag and the incoming buffer word identity 
+2. The pair of the top stack word identity and the incoming buffer word POS tag
+3. The pair of the top stack word identity, the top stack word POS tag, and the incmong buffer word POS tag
+4. The pair of the top stack word identity, the incoming buffer word POS tag, and the incoming buffer word POS tag
+5. The pair of the top stack word identity, the incoming buffer word identity, and the incoming buffer word POS tag
+6. The pair of the top stack word identity, the top stack word POS tag, and the incoming buffer word identity
+7. The feature that contains all attributes of the top stack word and the incoming buffer: the top stack word identity, the top stack word POS tag, the incoming buffer word identity, and the incoming buffer word POS tag
