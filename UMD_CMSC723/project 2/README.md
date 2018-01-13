@@ -1,7 +1,6 @@
-Project 2: Dependency Parsing
-Due Nov 9 by 12pm  Points 30  Submitting a file upload  File Types zip Available Oct 17 at 2pm - Nov 9 at 12pm 23 days
-This assignment was locked Nov 9 at 12pm.
-Introduction
+# Project 2: Dependency Parsing
+
+## Introduction
 
 This project is about understanding data-driven dependency parsing for English. We will work with data annotated and released as part of the CoNLL evaluations. You can download everything as a tar fileView in a new window.
 
@@ -13,7 +12,7 @@ Academic Dishonesty: We will be checking your code against other submissions in 
 
 Getting Help: You are not alone! If you find yourself stuck on something, contact the course staff for help. Office hours, class time, and Piazza are there for your support; please use them. We want these projects to be rewarding and instructional, not frustrating and demoralizing. But, we don't know when or how to help unless you ask. One more piece of advice: if you don't know what a variable is, print it out.
 
-Learning a graph-based dependency parser (5 points)
+## Learning a graph-based dependency parser (5 points)
 
 As a warm-up, we will walk through the key steps needed to train a graph-based dependency parser. To make things simpler, we produce an undirected dependency graph (rather than a directed graph). This lets us use the networkx (Links to an external site.) package to represent and manipulate our graphs.
 
@@ -27,17 +26,17 @@ Once you're done, the first way to check whether your code is doing something re
 
 The 2nd check is to run your code in a slightly more realistic setting, and actually use it to train on a larger number of training examples. You can do that by running, for instance:
 
-weights = Weights()
->>> for interation in range(5):
-         totalErr = 0.
-     for G in iterCoNLL('en.tr100'): 
-              totalErr += runOneExample(weights, G, quiet=True)
-     print totalErr
+`weights = Weights()  
+	for interation in range(5):  
+        totalErr = 0.  
+    for G in iterCoNLL('en.tr100'):   
+		totalErr += runOneExample(weights, G, quiet=True)  
+    print totalErr`
 As you go through more iterations over the data, the error should (roughly) keep dropping.
 
 What should you hand in: graphparser.py, after filling in your code for all the TODO items.
 
-Transition-based dependency parsing (15 Points)
+## Transition-based dependency parsing (15 Points)
 
 In this section, your task is to implement a transition-based dependency parser and train it on the provided training data.
 
@@ -51,7 +50,7 @@ transparser.py en.tr100 en.tst en.tst.out
 where
 
 "en.tr100" is the training file used to train the underlying classifier
-"en.tst" is the test file for which we need to predict dependency relations. It is a blind test set. The correct head for each word is not given to you (so the 7th field is "_" for each word).
+"en.tst" is the test file for which we need to predict dependency relations. It is a blind test set. The correct head for each word is not given to you (so the 7th field is "\_" for each word).
 "en.tst.out" is your output file. It should be in the same format as "en.tst", but the 7th field should now contain the position of the head predicted by your parser.
 Parser specification: as we have seen in class, there are *many* ways to define a transition-based parser. In this problem, you are asked to implement the following:
 
@@ -66,7 +65,7 @@ pair of words at top of stack and head of buffer
 pair of coarse POS (field 4) at top of stack and head of buffer
 You can check the performance of your parser by evaluating on the en.dev dataset. Your accuracy should at least be 30% or more.
 
-Improving performance (10 Points)
+## Improving performance (10 Points)
 
 Now that you have implemented a parser, your task is to improve its performance. You are welcome to be creative and come up with your own strategies for improvement, as long as (1) you use only the data provided for this assignment, and (2) you do not use existing syntactic parsers beyond what you implement for this assignment.
 
