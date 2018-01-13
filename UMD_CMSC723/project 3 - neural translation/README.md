@@ -1,17 +1,17 @@
-Project 3: Neural Transliteration
+# Project 3: Neural Transliteration
 
-# Overview
+## Overview
 This project aims to give you some hands on experience with neural models for NLP, and to put into practice some of the concepts discussed in lectures, readings, and recent paper presentations. 
 
 The goal of the project is to perform transliteration, i.e. convert words (typically names) from one orthographic system to another.  For instance, "Beijing" is the English transliteration of the Chinese name "±±¾©". Transliteration is not a deterministic process.  Rules are the product of conventions that vary over time, depend on the origin of words and other historical accidents. For instance "Peking" is sometimes also used as the transliteration of  "±±¾©".  Transliteration can be used as a component in machine translation, to provide a target language form for out-of-vocabulary source names. 
 In this project, we will focus on transliteration from Bulgarian, which is written with the Cyrillic alphabet, into English. We will use a sequence-to-sequence neural model. It will take as input a sequence of characters in the input language and produce a sequence of characters in the output language.
 
-# Set-up 
+## Set-up 
 You will need to install the following python libraries: numpy, matplotlib, nltk and pytorch. Instructions to install pytorch on your machine can be found here: http://pytorch.org/ (Links to an external site.). We used python 2.7 when testing the project.
 
 Download p3.tgzView in a new window
 
-# Submission 
+## Submission 
 You will submit a single zip file that contains the following:
 
 noattention.py (see Q7)
@@ -103,25 +103,6 @@ The train() function makes use of the teacher_forcing variable which controls ho
 - teacher_forcing = 0.9, n = 20000
 	[2.3665, 1.6007, 1.0566， 0.8898， 0.8482， 0.7081， 0.6986， 0.5904， 0.6117， 0.5460， 0.4688， 0.5590， 0.4290， 0.4703， 0.4849， 0.4927， 0.5098， 0.4603， 0.4732， 0.4830]
 	Average edit distance 1.2779
-
-
-
-以下数据作废，用错了py文件，所有teacher_forcing都=0.5
-- teacher_forcing = 0.5, n = 10000
-	[2.4114, 1.9639, 1.4539, 1.2059, 1.0049, 0.9565, 0.9056, 0.8406, 0.7909, 0.6907]
-- teacher_forcing = 0.5, n = 10000
-	[2.4021, 1.9127, 1.4876, 1.1665, 1.1107, 0.8920, 0.8341, 0.8353, 0.8185, 0.7475]
-- teacher_forcing = 0.5, n = 10000
-	[2.3936, 1.9107, 1.4225, 1.1273, 1.0037, 0.9333, 0.8463, 0.8232, 0.8126, 0.8877]
-- teacher_forcing = 0.5, n = 20000
-	[2.4122, 1.9376, 1.4469, 1.1745, 0.9959, 0.9777, 0.8808, 0.8262, 0.7743, 0.6708, 0.7035, 0.7141, 0.6587, 0.5779, 0.5939, 0.5559, 0.5824, 1.7077, 1.7754, 1.4751]
-	Average edit distance 3.9305
-- teacher_forcing = 0.5, n = 20000
-	[2.4343, 1.9439, 1.4215, 1.1259, 1.0630, 0.9392, 0.8825, 0.8610, 0.7840, 0.7479, 0.7683, 0.7556, 0.6608, 0.5998, 0.6119, 0.5627, 0.8250, 0.6799, 0.6051, 0.6240]
-	Average edit distance 1.5874
-- teacher_forcing = 0.5, n = 20000
-	[2.3947， 1.9697， 1.6475， 1.3342， 1.0840， 1.0015， 0.8446， 0.9143， 0.7836， 0.6965， 0.6895， 0.6359， 0.6604， 0.7001， 0.6940， 0.6033， 0.5508， 0.5580， 0.5221， 0.5598]
-	Average edit distance 1.3768
 
 ## Impact of attention mechanism
 
